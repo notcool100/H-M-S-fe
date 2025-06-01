@@ -1,103 +1,253 @@
-import Image from "next/image";
+import MainLayout from "@/components/layout/MainLayout";
+import Hero from "@/components/ui/Hero";
+import ServiceCard from "@/components/ui/ServiceCard";
+import {
+	Container,
+	Box,
+	Heading,
+	Text,
+	SimpleGrid,
+	Flex,
+	Button,
+	Image,
+	Stack,
+} from "@chakra-ui/react";
+import { FaUserMd, FaFlask, FaPills, FaAmbulance } from "react-icons/fa";
+import NextLink from "next/link";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+	return (
+		<MainLayout>
+			<Hero />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+			<Box bg="gray.50" py={16}>
+				<Container maxW="container.xl">
+					<Box textAlign="center" mb={12}>
+						<Heading as="h2" size="xl" mb={4}>
+							Our Services
+						</Heading>
+						<Text color="gray.600" maxW="2xl" mx="auto">
+							Health Bridge offers a comprehensive range of healthcare services
+							to meet all your medical needs in one place.
+						</Text>
+					</Box>
+
+					<SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
+						<ServiceCard
+							title="Doctor Appointments"
+							description="Book appointments with specialists"
+							features={[
+								"Find doctors by specialty",
+								"Video consultations available",
+								"Instant appointment confirmation",
+								"Appointment reminders",
+							]}
+							icon={<FaUserMd />}
+							href="/book-doctor"
+							buttonText="Book Now"
+						/>
+
+						<ServiceCard
+							title="Diagnostics"
+							description="Book lab tests and imaging services"
+							features={[
+								"MRI, CT Scan, Ultrasound",
+								"Blood tests and lab work",
+								"Home sample collection",
+								"Digital reports",
+							]}
+							icon={<FaFlask />}
+							href="/diagnostics"
+							buttonText="Book Test"
+							variant="secondary"
+						/>
+
+						<ServiceCard
+							title="e-Pharmacy"
+							description="Order medicines online"
+							features={[
+								"Prescription and OTC medicines",
+								"Upload prescription",
+								"Doorstep delivery",
+								"Subscription for regular medicines",
+							]}
+							icon={<FaPills />}
+							href="/pharmacy"
+							buttonText="Order Now"
+							variant="accent"
+						/>
+
+						<ServiceCard
+							title="Emergency Services"
+							description="24/7 emergency assistance"
+							features={[
+								"Ambulance booking",
+								"Emergency doctor consultation",
+								"Hospital admission assistance",
+								"Medical emergency guidance",
+							]}
+							icon={<FaAmbulance />}
+							href="/emergency"
+							buttonText="Call Now"
+							variant="outline"
+						/>
+					</SimpleGrid>
+				</Container>
+			</Box>
+
+			<Box py={16}>
+				<Container maxW="container.xl">
+					<Flex
+						direction={{ base: "column", lg: "row" }}
+						align="center"
+						justify="space-between"
+						gap={8}
+					>
+						<Box flex="1" pr={{ lg: 8 }}>
+							<Heading as="h2" size="xl" mb={4}>
+								Why Choose Health Bridge?
+							</Heading>
+							<Text color="gray.600" mb={6}>
+								We&apos;re committed to providing accessible, high-quality
+								healthcare services that put patients first. Our platform
+								connects you with the best healthcare providers and services.
+							</Text>
+
+							<Stack spacing={4} mb={6}>
+								<Flex align="center">
+									<Box
+										bg="brand.50"
+										p={2}
+										borderRadius="full"
+										mr={4}
+										color="brand.500"
+									>
+										<Box as="span" fontWeight="bold">
+											01
+										</Box>
+									</Box>
+									<Box>
+										<Heading as="h3" size="md">
+											Trusted Healthcare Providers
+										</Heading>
+										<Text color="gray.600">
+											All doctors and healthcare services are verified and
+											credentialed.
+										</Text>
+									</Box>
+								</Flex>
+
+								<Flex align="center">
+									<Box
+										bg="brand.50"
+										p={2}
+										borderRadius="full"
+										mr={4}
+										color="brand.500"
+									>
+										<Box as="span" fontWeight="bold">
+											02
+										</Box>
+									</Box>
+									<Box>
+										<Heading as="h3" size="md">
+											Seamless Digital Experience
+										</Heading>
+										<Text color="gray.600">
+											Book appointments, access reports, and manage
+											prescriptions online.
+										</Text>
+									</Box>
+								</Flex>
+
+								<Flex align="center">
+									<Box
+										bg="brand.50"
+										p={2}
+										borderRadius="full"
+										mr={4}
+										color="brand.500"
+									>
+										<Box as="span" fontWeight="bold">
+											03
+										</Box>
+									</Box>
+									<Box>
+										<Heading as="h3" size="md">
+											Comprehensive Healthcare
+										</Heading>
+										<Text color="gray.600">
+											From consultations to diagnostics and medicine delivery -
+											all in one place.
+										</Text>
+									</Box>
+								</Flex>
+							</Stack>
+
+							<Button
+								as={NextLink}
+								href="/about"
+								size="lg"
+								colorScheme="brand"
+								variant="outline"
+							>
+								Learn More About Us
+							</Button>
+						</Box>
+
+						<Box
+							flex="1"
+							maxW={{ base: "100%", lg: "500px" }}
+							h={{ base: "300px", lg: "400px" }}
+							position="relative"
+							borderRadius="xl"
+							overflow="hidden"
+							boxShadow="xl"
+						>
+							<Image
+								src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80"
+								alt="Doctor with patient"
+								objectFit="cover"
+								w="100%"
+								h="100%"
+							/>
+						</Box>
+					</Flex>
+				</Container>
+			</Box>
+
+			<Box bg="brand.500" py={16} color="white">
+				<Container maxW="container.xl" textAlign="center">
+					<Heading as="h2" size="xl" mb={6}>
+						Ready to take control of your health?
+					</Heading>
+					<Text fontSize="lg" maxW="2xl" mx="auto" mb={8}>
+						Join thousands of patients who have simplified their healthcare
+						journey with Health Bridge.
+					</Text>
+					<Flex justify="center" gap={4} flexWrap="wrap">
+						<Button
+							as={NextLink}
+							href="/register"
+							size="lg"
+							bg="white"
+							color="brand.500"
+							_hover={{ bg: "gray.100" }}
+						>
+							Sign Up Now
+						</Button>
+						<Button
+							as={NextLink}
+							href="/book-doctor"
+							size="lg"
+							variant="outline"
+							colorScheme="white"
+						>
+							Book Your First Appointment
+						</Button>
+					</Flex>
+				</Container>
+			</Box>
+		</MainLayout>
+	);
 }
