@@ -1,8 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Health Bridge - Healthcare Service Platform
+
+Health Bridge is a comprehensive healthcare service platform that enables users to book doctor appointments, diagnostic tests, order medicines online, and access various health-related services through an intuitive web application.
+
+## Sitemap and Page Structure
+
+- Home
+- About Us
+- Book a Doctor
+- Book Diagnostics (MRI, CT, Lab Tests)
+- Buy Medicines (e-Pharmacy)
+- Health Directory (Hospitals, Doctors, Ambulances)
+- Contact & Support
+- Login/Signup
+
+## Key Features
+
+- Doctor appointment booking
+- Diagnostic test booking (MRI, CT, USG)
+- Online medicine order with delivery tracking
+- Prescription upload
+- OTP/email-based login & registration
+- Admin panel to manage services and users
+- Live chat or chatbot for support
+
+## Patient Inquiry Information
+
+The platform collects the following patient information during service inquiries:
+
+1. Personal Information
+   - Full Name
+   - Age
+   - Gender
+   - Phone Number
+   - Email Address (optional)
+   - Location/Address (optional)
+
+2. Service Type (Multi-choice Dropdown)
+   - Doctor Appointment
+   - MRI Booking
+   - CT Scan Booking
+   - Lab Test (Blood, Urine, etc.)
+   - Pharmacy (Medicine Purchase)
+   - General Inquiry
+   - Ambulance Request
+
+3. Preferred Date & Time
+   - Date (calendar input)
+   - Time Slot (Morning/Afternoon/Evening or custom slot)
+
+4. Symptoms or Message (for diagnostics or doctor booking)
+   - Text area for brief description of concern or symptoms
+
+5. Upload Prescription or Report (Optional)
+   - File upload field (.jpg, .pdf, .png allowed)
+
+6. Consent & Agreement Checkbox
+   - Agreement to privacy policy and terms of service
+   - Consent to be contacted by Health Bridge representatives
+
+## Patient Report Access Portal
+
+- Secure login system for patients
+- Secure report upload panel for Admin/Lab Staff
+- Patient dashboard with notifications and report access
+
+## E-Pharmacy Order Tracking System
+
+- Upload prescriptions for medicine orders
+- Track medicine order status (Processing / Shipped / Delivered)
+- Choose delivery slot or pickup option
+
+## Doctor Directory with Filters
+
+- Search by Name, Specialization, Location
+- Book appointment button
+- Ratings or patient feedback (optional)
+
+## Ambulance & Emergency Contact Directory
+
+- Searchable list of verified ambulance services by district or location
+- Direct call option or inquiry form
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm, yarn, pnpm, or bun package manager
+
+### Installation
+
+1. Clone the repository
+2. Navigate to the `frontend` directory
+3. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+### Running the Development Server
 
 ```bash
 npm run dev
@@ -14,23 +116,48 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+# or
+bun build
+```
+
+### Starting the Production Server
+
+```bash
+npm start
+# or
+yarn start
+# or
+pnpm start
+# or
+bun start
+```
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
+- [Next.js GitHub Repository](https://github.com/vercel/next.js)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The easiest way to deploy this Next.js app is using the [Vercel Platform](https://vercel.com/new).
 
-## Deploy on Vercel
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! Please open issues or submit pull requests for improvements and bug fixes.
+
+## License
+
+This project is licensed under the MIT License.
